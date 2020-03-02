@@ -1,0 +1,34 @@
+#:kivy 1.11.1
+#:import Window kivy.core.window.Window
+
+<MessagesScreen>:
+    messages: messages
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        Messages:
+            id: messages
+            message_prompt: message_prompt
+            
+            cols: 1
+            rows: 2
+
+            Label:
+                id: message_history
+                height: Window.size[1] * 0.9
+                size_hint_y: None
+
+            GridLayout:
+                id: prompt_section
+                cols: 2
+
+                TextInput:
+                    id: message_prompt
+                    width: Window.size[0] * 0.8
+                    size_hint_x: None
+                    multiline: False
+
+                Button:
+                    text: 'Send'
+                    on_press: root.messages.send_message()
