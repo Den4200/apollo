@@ -8,10 +8,9 @@ class MessagesData:
     contents = dict()
 
 
-# Store messages in memory globally
+# Store client & messages in memory globally
 messages = MessagesData()
 client = FrostClient()
-# client.connect()
 
 
 def listen(_) -> None:

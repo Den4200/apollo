@@ -3,7 +3,7 @@ from typing import Any
 from kivy.app import App
 from kivy.uix.screenmanager import ScreenManager
 
-from .core.client import listen
+from .core import client
 from .core.login import LoginScreen
 from .messages import MessagesScreen
 
@@ -20,8 +20,13 @@ class Manager(ScreenManager):
 class Apollo(App):
 
     def build(self):
+        client.connect()
         return Manager()
 
 
 if __name__ == "__main__":
-    Apollo().run()
+    try:
+        Apollo().run()
+
+    finally:
+        client.close()
