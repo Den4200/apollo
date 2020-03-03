@@ -10,11 +10,12 @@
         Messages:
             id: messages
             message_prompt: message_prompt
+            message_history: message_history
             
             cols: 1
             rows: 2
 
-            Label:
+            ScrollableLabel:
                 id: message_history
                 height: Window.size[1] * 0.9
                 size_hint_y: None

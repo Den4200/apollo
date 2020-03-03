@@ -1,0 +1,19 @@
+#:kivy 1.11.1
+
+<ScrollableLabel>:
+    layout: layout
+    chat_history: chat_history
+    scroll_to_point: scroll_to_point
+    
+    GridLayout:
+        id: layout
+        cols: 1
+        size_hint_y: None
+
+        Label:
+            id: chat_history
+            size_hint_y: None
+            markup: True
+
+        Label:
+            id: scroll_to_point
