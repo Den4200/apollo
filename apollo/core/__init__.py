@@ -1,7 +1,8 @@
+from .screen_manager import Manager
 from .client import (
     client,
-    messages
+    messages,
 )
 
 
-__all__ = ('client', 'messages')
+__all__ = ('Manager', 'client', 'messages')
