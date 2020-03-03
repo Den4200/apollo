@@ -3,6 +3,7 @@ from typing import Any
 from kivy.app import App
 from kivy.uix.screenmanager import ScreenManager
 
+from .core.client import listen
 from .core.login import LoginScreen
 from .messages import MessagesScreen
 

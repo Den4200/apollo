@@ -1,5 +1,4 @@
 from typing import Any
-from dataclasses import dataclass
 
 from kivy.clock import Clock
 from kivy.lang import Builder
@@ -11,11 +10,6 @@ from .history import ScrollableLabel  # NOQA: F401
 
 
 Builder.load_file('apollo/messages/messages.kv')
-
-
-@dataclass
-class MessagesData:
-    contents = dict()
 
 
 class MessagesScreen(Screen):
