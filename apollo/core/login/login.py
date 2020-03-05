@@ -24,7 +24,10 @@ class LoginScreen(Screen):
                 f'[color=dd2020]{msg["from_user"]["username"]}[/color] > {msg["message"]}'
             )
 
-        Clock.schedule_interval(partial(listen, client), 0.25)
+        Clock.schedule_interval(partial(
+            listen,
+            self.manager.messages_screen.messages.message_history.update_chat_history
+        ), 0.25)
 
         self.manager.current = 'messages_screen'
 
