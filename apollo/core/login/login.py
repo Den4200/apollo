@@ -20,14 +20,12 @@ class LoginScreen(Screen):
         for msg_id, msg in msgs.items():
             messages.contents[msg_id] = msg
 
-            self.manager.messages_screen.messages.message_history.update_chat_history(
+            updater = self.manager.messages_screen.messages.message_history.update_chat_history
+            updater(
                 f'[color=dd2020]{msg["from_user"]["username"]}[/color] > {msg["message"]}'
             )
 
-        Clock.schedule_interval(partial(
-            listen,
-            self.manager.messages_screen.messages.message_history.update_chat_history
-        ), 0.25)
+        Clock.schedule_interval(partial(listen, updater), 0.25)
 
         self.manager.current = 'messages_screen'
 
