@@ -1,4 +1,4 @@
-from .messages import MessagesScreen
+from apollo.messages.messages import MessagesScreen
 
 
 __all__ = ('MessagesScreen',)

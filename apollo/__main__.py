@@ -1,7 +1,6 @@
 from kivy.app import App
 
-from .core import client
-from .core import Manager
+from apollo.core import Manager, client
 
 
 class Apollo(App):

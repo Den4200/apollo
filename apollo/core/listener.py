@@ -1,4 +1,4 @@
-from .client import client, messages
+from apollo.core.client import client, messages
 
 
 def listen(updater, *_) -> None:

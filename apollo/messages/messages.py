@@ -6,8 +6,8 @@ from kivy.core.window import Window
 from kivy.uix.screenmanager import Screen
 from kivy.uix.gridlayout import GridLayout
 
-from .history import ScrollableLabel  # NOQA: F401
-from ..core.client import client
+from apollo.messages.history import ScrollableLabel  # NOQA: F401
+from apollo.core.client import client
 
 
 Builder.load_file('apollo/messages/messages.kv')

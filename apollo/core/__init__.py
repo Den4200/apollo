@@ -1,5 +1,5 @@
-from .screen_manager import Manager
-from .client import (
+from apollo.core.screen_manager import Manager
+from apollo.core.client import (
     client,
     messages,
 )

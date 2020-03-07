@@ -4,8 +4,8 @@ from kivy.lang import Builder
 from kivy.clock import Clock
 from kivy.uix.screenmanager import Screen
 
-from ..listener import listen
-from ..client import client, messages
+from apollo.core.listener import listen
+from apollo.core.client import client, messages
 
 Builder.load_file('apollo/core/login/login.kv')
 
