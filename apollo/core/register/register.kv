@@ -1,14 +1,14 @@
 #:kivy 1.11.1
 
-<LoginScreen>:
+<RegisterScreen>:
     BoxLayout:
-        id: login_layout
+        id: register_layout
         orientation: 'vertical'
         padding: [10, 50, 10, 50]
         spacing: 50
 
         Label:
-            text: 'Apollo: Login'
+            text: 'Apollo: Register'
             font_size: 32
 
         BoxLayout:
@@ -44,13 +44,13 @@
             orientation: 'horizontal'
 
             Button:
+                text: 'Login'
+                font_size: 24
+                
+                on_press: root.manager.current = 'login_screen'
+
+            Button:
                 text: 'Register'
                 font_size: 24
 
-                on_press: root.manager.current = 'register_screen'
-
-            Button:
-                text: 'Login'
-                font_size: 24
-
-                on_press: root.login(username.text, password.text)
+                on_press: root.register(username.text, password.text)

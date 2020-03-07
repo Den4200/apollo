@@ -4,6 +4,7 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager
 
 from .login import LoginScreen  # NOQA: F401
+from .register import RegisterScreen  # NOQA: F401
 from ..messages import MessagesScreen  # NOQA: F401
 
 
