@@ -17,10 +17,10 @@ class LoginScreen(Screen):
 
         # Display previous chat messages
         msgs = client.get_all_msgs()
+        updater = self.manager.messages_screen.messages.message_history.update_chat_history
         for msg_id, msg in msgs.items():
             messages.contents[msg_id] = msg
 
-            updater = self.manager.messages_screen.messages.message_history.update_chat_history
             updater(
                 f'[color=dd2020]{msg["from_user"]["username"]}[/color] > {msg["message"]}'
             )
