@@ -24,6 +24,7 @@
                 id: username
                 multiline: False
                 font_size: 28
+                write_tab: False
 
         BoxLayout:
             orientation: 'vertical'
@@ -39,6 +40,7 @@
                 multiline: False
                 password: True
                 font_size: 28
+                write_tab: False
 
         BoxLayout:
             orientation: 'horizontal'
@@ -54,3 +56,42 @@
                 font_size: 24
 
                 on_press: root.register(username.text, password.text)
+
+<RegistrationFailure>:
+    title: 'Registration failed'
+    size_hint: 0.5, 0.5
+    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+    FloatLayout:
+        orientation: 'vertical'
+
+        Label:
+            size_hint: 0.5, 0.1
+            pos_hint: {'center_x': 0.5, 'center_y': 0.7}
+            color: 0.34, 1, 1, 1
+            text: 'Another user with your username already exists.'
+            font_size: 14
+
+        Button:
+            size_hint: 0.2, 0.2
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            color: 0.34, 1, 1, 1
+            text: '[ Close ]'
+            font_size: 14
+            on_press: root.dismiss()
+
+<Popup>:
+    auto_dismiss: False
+
+    canvas.before:
+        Color:
+            rgb: 0.34, 1, 1
+        Rectangle:
+            size: root.size[0] + 5, root.size[1] + 5
+            pos: root.pos[0] - 2.5, root.pos[1] - 2.5
+
+    seperator_color: 0.34, 1, 1
+    title_color: 0.34, 1, 1, 1
+    title_align: 'center'
+    title_size: 14
+    background_color: 0, 0, 0, 0
