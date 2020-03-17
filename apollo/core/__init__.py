@@ -1,8 +1,5 @@
 from apollo.core.screen_manager import Manager
-from apollo.core.client import (
-    client,
-    messages,
-)
+from apollo.core.client import client
 
 
-__all__ = ('Manager', 'client', 'messages')
+__all__ = ('Manager', 'client')

@@ -1,12 +1,11 @@
-from apollo.core.client import client, messages
+from frost.client.events import messages
 
 
 def listen(updater, *_) -> None:
-    msgs = client.get_new_msgs()
+    msgs = messages.get_new_msgs().values()
 
     if msgs:
-        for msg_id, msg in msgs.items():
-            messages.contents[msg_id] = msg
+        for msg in msgs:
             updater(
                  f'[color=dd2020]{msg["from_user"]["username"]}[/color] > {msg["message"]}'
             )
