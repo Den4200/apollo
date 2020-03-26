@@ -23,7 +23,6 @@ class Rooms(RecycleView):
         super().__init__(*args, **kwargs)
 
         self.currently_highlighted = None
-        self.prev_highlighted = None
         self.data = list()
 
     def update(self):
@@ -43,8 +42,8 @@ class Rooms(RecycleView):
         ]
 
     def highlight(self, room):
-        if self.prev_highlighted is not None:
-            self.prev_highlighted.alpha = 0
+        if self.currently_highlighted is not None:
+            self.currently_highlighted.alpha = 0
 
         room.alpha = 0.5
         self.currently_highlighted = room
@@ -53,9 +52,20 @@ class Rooms(RecycleView):
 class Room(Label):
     ctx = ObjectProperty()
     alpha = NumericProperty()
+
     name = StringProperty()
     id = NumericProperty()
 
     def on_mouse_pos(self, window, pos):
         if self.collide_point(*pos):
+            print('hover')
             self.ctx.highlight(self)
+
+    def on_touch_down(self, touch):
+        if self.collide_point(*touch.pos):
+            print('touch')
+            self.select()
+
+    def select(self):
+        # TODO: change message history and room members
+        pass

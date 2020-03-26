@@ -3,9 +3,14 @@
 
 <MessagesScreen>:
     messages: messages
+    members: members
+    rooms: rooms
 
     BoxLayout:
-        orientation: 'vertical'
+        orientation: 'horizontal'
+
+        Rooms:
+            id: rooms
 
         Messages:
             id: messages
@@ -15,7 +20,7 @@
             cols: 1
             rows: 2
 
-            ScrollableLabel:
+            MessageHistory:
                 id: message_history
                 height: Window.size[1] * 0.9
                 size_hint_y: None
@@ -26,10 +31,13 @@
 
                 TextInput:
                     id: message_prompt
-                    width: Window.size[0] * 0.8
+                    width: Window.size[0] * 0.6
                     size_hint_x: None
                     multiline: False
 
                 Button:
                     text: 'Send'
                     on_press: root.messages.send_message()
+
+        Members:
+            id: members

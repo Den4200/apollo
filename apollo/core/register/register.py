@@ -3,8 +3,8 @@ from kivy.uix.popup import Popup
 from kivy.uix.screenmanager import Screen
 
 from frost.client import Status
-from frost.client.events import register_status
 
+from apollo.utils import get_status
 from apollo.core.client import client
 
 
@@ -16,10 +16,7 @@ class RegisterScreen(Screen):
     def register(self, username, password):
         client.register(username, password)
 
-        status = None
-        while status is None:
-            status = register_status.get_status()
-
+        status = get_status('register')
         if status == Status.SUCCESS.value:
             self.manager.current = 'login_screen'
 

@@ -6,6 +6,7 @@ from kivy.core.window import Window
 from kivy.uix.screenmanager import Screen
 from kivy.uix.gridlayout import GridLayout
 
+from apollo.rooms import Members, Rooms  # NOQA: F401
 from apollo.messages.history import MessageHistory  # NOQA: F401
 from apollo.core.client import client
 
@@ -31,7 +32,7 @@ class Messages(GridLayout):
         msg = self.message_prompt.text
 
         if msg:
-            client.send_msg(msg)
+            client.send_msg(1, msg)  # TODO: get current room id
 
         self.message_prompt.text = ''
         Clock.schedule_once(self._focus_text_input, 0.1)

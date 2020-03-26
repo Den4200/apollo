@@ -6,8 +6,8 @@ from kivy.uix.popup import Popup
 from kivy.uix.screenmanager import Screen
 
 from frost.client import Status
-from frost.client.events import login_status
 
+from apollo.utils import get_status
 from apollo.core.listener import listen
 from apollo.core.client import client
 
@@ -19,14 +19,10 @@ class LoginScreen(Screen):
     def login(self, username, password):
         client.login(username, password)
 
-        status = None
-        while status is None:
-            status = login_status.get_status()
-
+        status = get_status('login')
         if status == Status.SUCCESS.value:
-            updater = self.manager.messages_screen.messages.message_history.update_chat_history
-            Clock.schedule_interval(partial(listen, updater), 0.25)
-
+            self.manager.messages_screen.rooms.update()
+            Clock.schedule_interval(partial(listen, self.manager), 0.25)
             self.manager.current = 'messages_screen'
 
         else:

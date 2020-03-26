@@ -1,8 +1,8 @@
 #:kivy 1.11.1
 
 
-<Rooms>:
-    viewclass: 'Room'
+<Members>:
+    viewclass: 'Member'
     effect_cls: 'ScrollEffect'
 
     RecycleGridLayout:
@@ -13,12 +13,10 @@
         cols: 1
 
 
-<Room>:
+<Member>:
     canvas:
         Color:
             rgba: 1, 1, 1, self.alpha
         Rectangle:
             size: self.size
             pos: self.pos
-
-    text: self.name
