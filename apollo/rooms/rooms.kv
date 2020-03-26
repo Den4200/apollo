@@ -1,0 +1,23 @@
+#:kivy 1.11.1
+
+
+<Rooms>:
+    viewclass: 'Room'
+    effect_cls: 'ScrollEffect'
+    size_hint: .98,.90
+
+    RecycleGridLayout:
+        default_size: None, dp(35)
+        default_size_hint: 1, None
+        size_hint_y: None
+        height: self.minimum_height
+        cols: 1
+
+
+<Room>:
+    canvas:
+        Color:
+            rgba: 1, 1, 1, self.alpha
+        Rectangle:
+            size: self.size
+            pos: self.pos

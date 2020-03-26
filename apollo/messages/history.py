@@ -8,7 +8,7 @@ from kivy.uix.scrollview import ScrollView
 Builder.load_file('apollo/messages/history.kv')
 
 
-class ScrollableLabel(ScrollView):
+class MessageHistory(ScrollView):
 
     def __init__(self, *args: Any, **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)
